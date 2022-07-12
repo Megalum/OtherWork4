@@ -29,25 +29,8 @@ namespace OtherWork4
                 task = InputString("Введите команду: ");
                 Console.Clear();
                 switch (task)
-                {
+                {                    
                     case "1":
-                        goto case "AddRecord";
-                    case "2":
-                        goto case "PrintAllRecord";
-                    case "3":
-                        goto case "DellRecord";
-                    case "4":
-                        goto case "SearchBySurnames";
-                    case "5":
-                        goto case "SearchBySalary";
-                    case "6":
-                        goto case "SearchByPosition";
-                    case "7":
-                        goto case "RelpayRecord";
-                    case "8":
-                        task = "Exit";
-                        break;
-
                     case "AddRecord":
                         name[length] = InputString("Введите ФИО работника: ");
                         position[length] = InputString("Введите должность работника: ");
@@ -55,10 +38,12 @@ namespace OtherWork4
                         length++;
                         break;
 
+                    case "2":
                     case "PrintAllRecord":
                         PrintAll();
                         break;
 
+                    case "3":
                     case "DellRecord":
                         PrintAll();
                         search = InputString("Введите номер досье которое желаете удалить: ");
@@ -71,11 +56,13 @@ namespace OtherWork4
                         length--;
                         break;
 
+                    case "4":
                     case "SearchBySurnames":
                         search = InputString("Введите фамилию для поискa: ");
                         Search(name, search);
                         break;
 
+                    case "5":
                     case "SearchBySalary":
                         string minMax = InputString("Осуществляем поиск: в большую(>), в мeньшую(<)");
                         search = InputString("Введите зарплату для поиска: ");
@@ -94,11 +81,13 @@ namespace OtherWork4
 
                         break;
 
+                    case "6":
                     case "SearchByPosition":
                         search = InputString("Введите должность для поиска: ");
                         Search(position, search);
                         break;
 
+                    case "7":
                     case "RelpayRecord":
                         PrintAll();
                         search = InputString("Укащите какую колонку желаете изменить: ");
@@ -109,6 +98,10 @@ namespace OtherWork4
                             position[index] = InputString("Введите новую должность работника: ");
                         if (search.ToLower() == "зарплата")
                             salary[index] = InputString("Введите новую зарплату работника: ");
+                        break;
+
+                    case "8":
+                        task = "Exit";
                         break;
                 }
 
